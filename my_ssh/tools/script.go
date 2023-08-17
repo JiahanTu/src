@@ -1,10 +1,9 @@
-package main
+package tools
 
 import (
 	"fmt"
 	"io"
 	"log"
-	"my_ssh/tools"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -13,13 +12,13 @@ import (
 	"golang.org/x/term"
 )
 
-func script() error {
+func Script() error {
 	// Create arbitrary command.
 	shell := os.Getenv("SHELL")
 	c := exec.Command(shell)
 
 	// Start the command with a pty.
-	ptmx, err := tools.Start(c)
+	ptmx, err := Start(c)
 	if err != nil {
 		return err
 	}
@@ -31,7 +30,7 @@ func script() error {
 	signal.Notify(ch, syscall.SIGWINCH)
 	go func() {
 		for range ch {
-			if err := tools.InheritSize(os.Stdin, ptmx); err != nil {
+			if err := InheritSize(os.Stdin, ptmx); err != nil {
 				log.Printf("error resizing pty: %s", err)
 			}
 		}
@@ -59,8 +58,8 @@ func script() error {
 	return nil
 }
 
-func main() {
-	if err := script(); err != nil {
-		log.Fatal(err)
-	}
-}
+// func main() {
+// 	if err := script(); err != nil {
+// 		log.Fatal(err)
+// 	}
+// }

@@ -4,7 +4,7 @@ This script tool could audit all of the command in the log
 ## Run
 To trigger the code, simply run:
 ```
-go run my_ssh/script.go
+go run my_ssh/main.go
 ```
 
 Then the command history would be stored in command_results.txt
@@ -13,7 +13,7 @@ Hint: The GOPATH need to be src's parent repo, to set gopath, run: `export GOPAT
 
 ## Examples
 ```
-jiahan.tu@Jiahans-MacBook-Pro src % go run my_ssh/script.go
+jiahan.tu@Jiahans-MacBook-Pro src % go run my_ssh/main.go
 jiahan.tu@Jiahans-MacBook-Pro src % pwd
 /Users/jiahan.tu/Documents/Project/go_project/src
 jiahan.tu@Jiahans-MacBook-Pro src % cd my_ssh 
