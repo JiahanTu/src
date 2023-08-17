@@ -57,9 +57,3 @@ func Script() error {
 
 	return nil
 }
-
-// func main() {
-// 	if err := script(); err != nil {
-// 		log.Fatal(err)
-// 	}
-// }
